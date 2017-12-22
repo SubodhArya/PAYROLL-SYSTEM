@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Employee Reporting System</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	
+	
+			<!-- Website Font style -->
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+			<link rel="stylesheet" href="style.css">
+			<!-- Google Fonts -->
+			<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+			<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+	
+</head>
+<body>
+<header>
+	<div class="navbar-header">
+		<a class="navbar-brand" href="/">
+	<img style="width:120px; margin-top: 10px;" src="{{ url_for('static', filename='images/home.jpg') }}">
+	</a>
+	</div>
+	
+	
+	<div class = "container-fluid">
+
+		<a href="/dashboard/"><button type="button" class="btn btn-primary" aria-label="Left Align" style="margin-top: 10px; margin-bottom: 5px; height: 44px; margin-right: 15px">
+		  <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Start Working
+		</button></a>
+
+	
+	
+	
+	<ul class="nav navbar-nav navbar-right">
+		  
+		  <div style="margin-right: 10px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;"  class="container-fluid">
+			<h5>
+					{% if session.logged_in %}
+					<span style="color:#FF8800"> Hello, {{session.username}}!</span>
+					<a href="/support-donate/"> <span class="glyphicon glyphicon-heart"></span> Support   </a>
+					<a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> Logout   </a>
+					{% else %}
+
+			<a href="/support-donate/"> <span class="glyphicon glyphicon-heart"></span> Support   </a>
+	
+			<a role="presentation" data-toggle="modal" data-target="#exampleModal" href="#"><span class="glyphicon glyphicon-log-in"></span> Login   </a>
+
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					<h4 class="modal-title" id="exampleModalLabel">Login</h4>
+				  </div>
+				  <div class="modal-body">
+					  <div class="container-fluid">
+						  <form action="" class="form-inline" method="post">
+							<input type="text" class="form-control" placeholder="Username" name="username" value="{{request.form.username}}">
+							 <input type="password" class="form-control" placeholder="Password" name="password" value="{{request.form.password}}">
+							<input class="btn btn-primary" type="submit" value="Login">
+						  </form>
+						  
+							<div class="container">
+							<br>
+						   <p>No account? <a href='/register'>Register here</a>.</p>
+						   <br>
+							
+						  </div>
+					</div>
+				  </div>
+
+				</div>
+			  </div>
+			</div>
+
+		<a href="/register/" ><span class="glyphicon glyphicon-pencil"></span> Sign up</a>
+		{% endif %}
+		
+</h5>
+</header>
+
+
+	
+		<div class="container" style="min-height:100% ;width:80%;">
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+				<div class="alert alert-warning alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+				{{message}}
+				</div>
+			{% endfor %}
+			{% endif %}
+		{% endwith %}
+		
+		{% block body %}{% endblock %}
+		</div>
+	
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+		
+		
+	
+		<footer>
+			
+			<div class="footer-top"> 
+				 <div class="container">
+					 <div class="col-lg-2 col-xs-12 text-center">
+							 <a href="https://www.facebook.com/aarya.18"><i class="fa fa-facebook fa-2x"></i>Facebook</a>
+					 </div>
+						<div class="col-lg-2 col-xs-12 text-center">
+							 <a href="https://www.facebook.com/aarya.18"><i class="fa fa-twitter fa-2x"></i>Twitter</a>
+					 </div>
+						<div class="col-lg-2 col-xs-12 text-center">
+							 <a href="https://www.facebook.com/aarya.18"><i class="fa fa-flickr fa-2x"></i>Flickr</a>
+					 </div>
+						<div class="col-lg-2 col-xs-12 text-center">
+							 <a href="https://www.facebook.com/aarya.18"><i class="fa fa-tumblr fa-2x"></i>Tumblr</a>
+					 </div>
+						<div class="col-lg-2 col-xs-12 text-center">
+							 <a href="https://github.com/SubodhArya"><i class="fa fa-github fa-2x"></i>Github</a>
+					 </div>
+						<div class="col-lg-2 col-xs-12 text-center">
+							 <a href="https://plus.google.com/u/0/117031808403057110790"><i class="fa fa-google-plus fa-2x"></i>Google</a>
+					 </div>
+				 </div> 
+			</div>  
+			
+			<div class="container" style="border-top:1px solid grey;">
+					<div class="row text-center">   
+							<div class="col-lg-6 col-lg-offset-3">
+										<ul class="menu">
+															 
+													 <li>
+															<a href="/">Home</a>
+														</li>
+																 
+														<li>
+															 <a href="#">About</a>
+														</li>
+																 
+														<li>
+															<a href="#">Blog</a>
+														</li>
+																 
+														<li>
+															 <a href="#">Gallery</a>
+														</li>
+																 
+														<li>
+															<a href="#">Contact</a>
+													 </li>
+								 
+											</ul>
+							</div>
+					</div>
+			</div>
+			
+	</footer>
+	
+	
+	<div class="copyright">
+	 <div class="container">
+		 
+			 <div class="row text-center">
+				 <p>Copyright © 2017 All rights reserved</p>
+			 </div>
+			 
+		</div>
+	</div>
+	
+	</html>
+			

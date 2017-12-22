@@ -1,0 +1,159 @@
+{% extends "header.html" %}
+
+{% block body %}
+<style>
+  
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+h1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 35vmin;
+}
+
+.card {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
+  margin: 20px;
+  max-width: 1000px;
+}
+.card header {
+  position: relative;
+}
+.card header img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card header:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(black 0%, rgba(0, 0, 0, 0.917) 5.3%, rgba(0, 0, 0, 0.834) 10.6%, rgba(0, 0, 0, 0.753) 15.9%, rgba(0, 0, 0, 0.672) 21.3%, rgba(0, 0, 0, 0.591) 26.8%, rgba(0, 0, 0, 0.511) 32.5%, rgba(0, 0, 0, 0.433) 38.4%, rgba(0, 0, 0, 0.357) 44.5%, rgba(0, 0, 0, 0.283) 50.9%, rgba(0, 0, 0, 0.213) 57.7%, rgba(0, 0, 0, 0.147) 65%, rgba(0, 0, 0, 0.089) 72.9%, rgba(0, 0, 0, 0.042) 81.4%, rgba(0, 0, 0, 0.011) 90.6%, transparent 100%);
+  background: linear-gradient(black 0%, rgba(0, 0, 0, 0.917) 5.3%, rgba(0, 0, 0, 0.834) 10.6%, rgba(0, 0, 0, 0.753) 15.9%, rgba(0, 0, 0, 0.672) 21.3%, rgba(0, 0, 0, 0.591) 26.8%, rgba(0, 0, 0, 0.511) 32.5%, rgba(0, 0, 0, 0.433) 38.4%, rgba(0, 0, 0, 0.357) 44.5%, rgba(0, 0, 0, 0.283) 50.9%, rgba(0, 0, 0, 0.213) 57.7%, rgba(0, 0, 0, 0.147) 65%, rgba(0, 0, 0, 0.089) 72.9%, rgba(0, 0, 0, 0.042) 81.4%, rgba(0, 0, 0, 0.011) 90.6%, transparent 100%);
+}
+.card header .text-wrap {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 20px;
+}
+.card header .text-wrap h2 {
+  font-size: 3.5rem;
+  margin-top: 20px;
+}
+.card header .text-wrap h3 {
+  margin-top: 5px;
+  font-weight: 100;
+}
+.card main {
+  min-height: 150px;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.card main .cta-wrap {
+  background: #f1c40f;
+  color: white;
+  padding: 10px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.card main .cta-wrap svg {
+  height: 40px;
+  fill: white;
+}
+.card main .cta-wrap span {
+  margin-top: 10px;
+}
+.card main .info-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 20px;
+}
+.card main .info-wrap h4 {
+  font-size: 1.45rem;
+  color: #3a3a3a;
+}
+.card main .info-wrap p {
+  margin-top: .75rem;
+  color: #7f8c8d;
+}
+
+</style>
+
+<body>
+        {% for d in data %}
+        <div class="card">
+                <header>
+                  <img src="https://clearreview.com/wp-content/uploads/2015/06/feedforward.jpg" />
+                  <div class="text-wrap">
+                    <h2>{{ d[2] }}</h2>
+                    <h3>{{ d[5] }} </h3>
+                  </div>
+                </header>
+                <main>
+                  
+                    <h2>Details</h2>
+              
+                  <div class="info-wrap">
+                    <strong><h4>{{ d[3] }} </h4></strong>
+                   <strong> <p>{{ d[4] }}</p></strong>
+                    <p> CONTACT {{ d[1] }}</p>
+                  </div>
+                </main>
+              </div>    
+              {% endfor %}
+                
+            
+            {% if error %}
+            <p class="error"><strong>Error:</strong>{{error}}</p>
+        {% endif %}
+        
+      
+      
+  </body>    
+      
+
+{% endblock %}
+ 
+

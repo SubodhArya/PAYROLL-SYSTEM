@@ -1,0 +1,32 @@
+{% extends "header.html" %}
+
+{% block body %}
+
+
+<body>
+        <div class = "container">
+            <h4>CREATE TASKS</h4>
+            <br>
+            {% from "_formhelpers.html" import render_field %}
+            <form method=post action="/task/">
+                <dl>
+                    {{render_field(form.taskname)}}
+                    {{render_field(form.category)}}
+                    {{render_field(form.description)}}
+                    {{render_field(form.mobile)}}
+                    
+                </dl>
+                <p><input type=submit value=SUBMIT></p>
+            </form>
+            
+            {% if error %}
+                <p class="error"><strong>Error:</strong>{{error}}</p>
+            {% endif %}
+    
+        </div>
+    </body>
+    
+
+{% endblock %}
+ 
+

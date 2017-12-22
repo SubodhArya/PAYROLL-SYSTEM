@@ -1,0 +1,90 @@
+.navbar-header img {
+    max-height: 100%;
+    width: auto;
+    background-color: #9FAA38
+
+}
+.jumbotron{
+    height: 675px;
+    border: 2px solid #3877AA;
+    box-shadow: 0 0 50px #4938AA;
+    margin-top: 20px;
+}
+.card-panel{
+    border: 2px solid #3877AA;
+    box-shadow: 0 0 50px #4938AA;
+
+}
+.responsive-img{
+
+margin: 0 auto;
+}
+footer .container-fluid{
+    background-color: #222106;
+}
+.container-fluid{
+    background-color: #222106;
+}
+
+body{
+    background-color: #3899AA
+}
+body{
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  footer{
+      background-color:#222222;
+      padding: 60px 0px;
+  }
+  
+  footer ul{
+      list-style:none;
+      margin:0 auto;
+      display:inline-block;
+      padding-top:50px;
+  }
+  
+  footer ul li{
+      float:left;
+  }
+  
+  footer ul li a{
+      color:#b1aca1;
+      padding:20px;
+  }
+  
+  footer ul li a:hover{
+      color:#7dabdb;
+      text-decoration:none;
+  }
+  
+  .footer-top{
+      padding-bottom:50px;
+  }
+  
+  .footer-top .fa{
+      font-size:18px;
+      color: #FFF;
+      padding-right:10px;
+  }
+  
+  .footer-top a{
+      color:#FFF;
+      text-decoration:none;
+  }
+  
+  .footer-top .col-lg-2:hover .fa , .footer-top .col-lg-2:hover a{
+      color:#7dabdb;
+  }
+  
+  .copyright{
+      background-color:#f0f0f0;
+  }
+  
+  .copyright p{
+      font-size:12px;
+      padding:15px 0 10px 0;
+  }
+  
+  
